@@ -1,0 +1,362 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NovaCalc Pro | Smart Calculator</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body data-theme="lavender">
+
+<div class="app">
+
+    <!-- HEADER -->
+    <header class="topbar">
+        <a class="brand" href="#">
+            <span class="brand-mark">n</span>
+            <span>nova<span class="brand-light">calc</span></span>
+        </a>
+
+        <div class="header-actions">
+            <span class="status">
+                <i></i> READY TO CALCULATE
+            </span>
+
+            <select id="themeSelect" class="theme-select" aria-label="Choose theme">
+                <option value="lavender">💜 Lavender</option>
+                <option value="pink">🌸 Pink</option>
+                <option value="blue">💙 Ocean Blue</option>
+                <option value="mint">🌿 Mint</option>
+            </select>
+
+            <button id="soundToggle" class="icon-button" title="Toggle sound">🔊</button>
+            <button id="darkToggle" class="icon-button" title="Toggle dark mode">☾</button>
+        </div>
+    </header>
+
+
+    <!-- HERO -->
+    <section class="hero">
+        <p class="eyebrow">A LITTLE CLARITY IN EVERY NUMBER</p>
+
+        <h1>
+            Simple math.<br>
+            <span>Beautifully done.</span>
+        </h1>
+
+        <p class="subtitle">
+            Your everyday calculations, all in one place.
+        </p>
+    </section>
+
+
+    <!-- MAIN APPLICATION -->
+    <main class="workspace">
+
+        <!-- NAVIGATION -->
+        <nav class="tabs">
+            <button class="tab active" data-tab="basic">⌗ Basic</button>
+            <button class="tab" data-tab="scientific">ƒx Scientific</button>
+            <button class="tab" data-tab="gst">％ GST & Discount</button>
+            <button class="tab" data-tab="converter">⇄ Converter</button>
+        </nav>
+
+
+        <!-- BASIC CALCULATOR -->
+        <section class="tool-panel active" id="basic">
+
+            <div class="calculator">
+
+                <div class="calc-header">
+                    <div class="calc-title">
+                        <span class="calc-icon">＋</span>
+                        <div>
+                            <strong>Basic Calculator</strong>
+                            <small>Everyday calculations</small>
+                        </div>
+                    </div>
+
+                    <button class="text-button" id="historyToggle">
+                        ↺ History
+                    </button>
+                </div>
+
+
+                <div class="screen">
+                    <span class="screen-label">YOUR EXPRESSION</span>
+
+                    <div id="expression" class="expression">0</div>
+
+                    <div class="result-line">
+                        <span>RESULT</span>
+
+                        <div class="result-actions">
+                            <strong id="result">0</strong>
+                            <button id="copyResult" class="copy-button" title="Copy result">▢</button>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="keypad">
+
+                    <button class="key special" data-action="clear">AC</button>
+                    <button class="key special" data-action="delete">⌫</button>
+                    <button class="key special" data-value="%">%</button>
+                    <button class="key operator" data-value="÷">÷</button>
+
+                    <button class="key" data-value="7">7</button>
+                    <button class="key" data-value="8">8</button>
+                    <button class="key" data-value="9">9</button>
+                    <button class="key operator" data-value="×">×</button>
+
+                    <button class="key" data-value="4">4</button>
+                    <button class="key" data-value="5">5</button>
+                    <button class="key" data-value="6">6</button>
+                    <button class="key operator" data-value="−">−</button>
+
+                    <button class="key" data-value="1">1</button>
+                    <button class="key" data-value="2">2</button>
+                    <button class="key" data-value="3">3</button>
+                    <button class="key operator" data-value="+">+</button>
+
+                    <button class="key special" data-action="sign">+/−</button>
+                    <button class="key" data-value="0">0</button>
+                    <button class="key" data-value=".">.</button>
+                    <button class="key equals" data-action="equals">=</button>
+
+                </div>
+
+                <div class="calc-footer">
+                    <span>⌨ Keyboard supported</span>
+                    <span>Made for everyday math ✦</span>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- SCIENTIFIC CALCULATOR -->
+        <section class="tool-panel" id="scientific">
+
+            <div class="calculator">
+
+                <div class="calc-header">
+                    <div class="calc-title">
+                        <span class="calc-icon">ƒx</span>
+                        <div>
+                            <strong>Scientific Calculator</strong>
+                            <small>Advanced mathematics</small>
+                        </div>
+                    </div>
+
+                    <button class="text-button" id="sciClear">Clear</button>
+                </div>
+
+                <div class="screen">
+                    <span class="screen-label">SCIENTIFIC EXPRESSION</span>
+
+                    <div id="sciExpression" class="expression">0</div>
+
+                    <div class="result-line">
+                        <span>RESULT</span>
+                        <strong id="sciResult">0</strong>
+                    </div>
+                </div>
+
+                <div class="sci-grid">
+
+                    <button class="key special" data-sci="sin(">sin</button>
+                    <button class="key special" data-sci="cos(">cos</button>
+                    <button class="key special" data-sci="tan(">tan</button>
+                    <button class="key special" data-sci="sqrt(">√</button>
+
+                    <button class="key special" data-sci="log(">log</button>
+                    <button class="key special" data-sci="ln(">ln</button>
+                    <button class="key special" data-sci="^2">x²</button>
+                    <button class="key special" data-sci="^">xʸ</button>
+
+                    <button class="key" data-sci="(">(</button>
+                    <button class="key" data-sci=")">)</button>
+                    <button class="key" data-sci="pi">π</button>
+                    <button class="key" data-sci="e">e</button>
+
+                    <button class="key" data-sci="7">7</button>
+                    <button class="key" data-sci="8">8</button>
+                    <button class="key" data-sci="9">9</button>
+                    <button class="key operator" data-sci="÷">÷</button>
+
+                    <button class="key" data-sci="4">4</button>
+                    <button class="key" data-sci="5">5</button>
+                    <button class="key" data-sci="6">6</button>
+                    <button class="key operator" data-sci="×">×</button>
+
+                    <button class="key" data-sci="1">1</button>
+                    <button class="key" data-sci="2">2</button>
+                    <button class="key" data-sci="3">3</button>
+                    <button class="key operator" data-sci="−">−</button>
+
+                    <button class="key" data-sci="0">0</button>
+                    <button class="key" data-sci=".">.</button>
+                    <button class="key operator" data-sci="+">+</button>
+                    <button class="key equals" id="sciEquals">=</button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- GST AND DISCOUNT -->
+        <section class="tool-panel" id="gst">
+
+            <div class="calculator extra-calculator">
+
+                <div class="calc-header">
+                    <div class="calc-title">
+                        <span class="calc-icon">%</span>
+                        <div>
+                            <strong>GST & Discount Calculator</strong>
+                            <small>Calculate tax and savings</small>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="sub-tabs">
+                    <button class="sub-tab active" data-mode="gst">GST Calculator</button>
+                    <button class="sub-tab" data-mode="discount">Discount Calculator</button>
+                </div>
+
+                <div class="form-group">
+                    <label for="amount">Original Amount (₹)</label>
+                    <input type="number" id="amount" placeholder="Enter amount" min="0">
+                </div>
+
+                <div class="form-group">
+                    <label id="rateLabel" for="rate">GST Rate (%)</label>
+                    <select id="rate">
+                        <option value="5">5%</option>
+                        <option value="12">12%</option>
+                        <option value="18" selected>18%</option>
+                        <option value="28">28%</option>
+                    </select>
+                </div>
+
+                <button class="primary-button" id="calculateExtra">
+                    Calculate Now →
+                </button>
+
+                <div class="output-card" id="extraOutput">
+                    <p>Enter an amount to see your calculation.</p>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- UNIT CONVERTER -->
+        <section class="tool-panel" id="converter">
+
+            <div class="calculator extra-calculator">
+
+                <div class="calc-header">
+                    <div class="calc-title">
+                        <span class="calc-icon">⇄</span>
+                        <div>
+                            <strong>Unit Converter</strong>
+                            <small>Convert units instantly</small>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="unitType">Conversion Category</label>
+
+                    <select id="unitType">
+                        <option value="length">Length</option>
+                        <option value="weight">Weight</option>
+                        <option value="temperature">Temperature</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="unitValue">Enter Value</label>
+                    <input type="number" id="unitValue" placeholder="Enter value" value="1">
+                </div>
+
+                <div class="conversion-row">
+
+                    <div class="form-group">
+                        <label for="fromUnit">From</label>
+                        <select id="fromUnit"></select>
+                    </div>
+
+                    <span class="swap-icon">⇄</span>
+
+                    <div class="form-group">
+                        <label for="toUnit">To</label>
+                        <select id="toUnit"></select>
+                    </div>
+
+                </div>
+
+                <button class="primary-button" id="convertButton">
+                    Convert Now →
+                </button>
+
+                <div class="output-card conversion-output">
+                    <span>CONVERTED RESULT</span>
+                    <strong id="conversionResult">1</strong>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- HISTORY -->
+        <section class="history-section" id="historySection">
+
+            <div class="history-heading">
+                <div>
+                    <h2>Calculation History</h2>
+                    <p>Your recent calculations, saved in this browser.</p>
+                </div>
+
+                <div class="history-actions">
+                    <button id="exportHistory" class="outline-button">↓ Export</button>
+                    <button id="clearHistory" class="outline-button danger">Clear All</button>
+                </div>
+            </div>
+
+            <div id="historyList" class="history-list">
+                <p class="empty-history">No calculations yet.</p>
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <footer class="page-footer">
+        <p>DESIGNED TO KEEP THINGS SIMPLE</p>
+        <span>NOVACALC PRO © 2026</span>
+    </footer>
+
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
